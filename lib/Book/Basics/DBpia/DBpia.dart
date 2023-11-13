@@ -37,20 +37,22 @@ class DBpia extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  padding: EdgeInsets.all(20.0),
+                  padding: EdgeInsets.all(10.0),
                 ),
-                Text(
-                  "DBpia 사이트",
+                Container(
+                  padding: EdgeInsets.fromLTRB(25, 10, 25, 5),
+                child: Text(
+                  "DBpia",
                   style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 20,
                     fontFamily: 'NotoSansKR',
                     fontWeight: FontWeight.w900,
                   ),
                 ),
+                ),
                 Container(
                   padding: EdgeInsets.all(10.0),
-                ),
-                Text(
+                child: Text(
                   "전자저널 논문, 참고 자료, 등을 검색할 수 있는 유/무료 통합 플랫폼 논문 사이트",
                   style: TextStyle(
                     fontSize: 15,
@@ -58,35 +60,40 @@ class DBpia extends StatelessWidget {
                     fontWeight: FontWeight.w900,
                   ),
                 ),
-                Container(
-                  padding: EdgeInsets.all(20.0),
                 ),
-                Text(
+                Container(
+                  padding: EdgeInsets.fromLTRB(25, 10, 25, 5),
+                child: Text(
                   "사이트 특징",
                   style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 20,
                     fontFamily: 'NotoSansKR',
                     fontWeight: FontWeight.w900,
                   ),
                 ),
+                ), 
                 Container(
-                  padding: EdgeInsets.all(10.0),
-                ),
-                Text(
+                  padding: EdgeInsets.fromLTRB(10, 10, 10, 3),
+                child: Text(
                   "- 검색 시 항목별 검색으로 주제분류 / 간행물 / 간행기관 / 저자 등으로 구분해서 검색이 가능함 ",
+                  
                   style: TextStyle(
                     fontSize: 15,
                     fontFamily: 'NotoSansKR',
                     fontWeight: FontWeight.w900,
                   ),
                 ),
-                Text(
+                ),
+                Container(
+                  padding: EdgeInsets.fromLTRB(10, 4, 10, 0),
+                child: Text(
                   "- 개인 맞춤 추천 항목이 있어 원하는 주제에 대한 기초 자료를 받아볼 수 있음",
                   style: TextStyle(
                     fontSize: 15,
                     fontFamily: 'NotoSansKR',
                     fontWeight: FontWeight.w900,
                   ),
+                ),
                 ),
               ],
             ),
