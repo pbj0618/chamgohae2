@@ -49,6 +49,30 @@ class _ButtonListState extends State<ButtonList> {
     });
   }
 
+  void sortListByHeart() {
+    setState(() {
+      List<String> tempLabels = [];
+      List<bool> tempHearts = [];
+
+      for (int i = 0; i < buttonLabels.length; i++) {
+        if (isHeartActiveList[i]) {
+          tempLabels.add(buttonLabels[i]);
+          tempHearts.add(true);
+        }
+      }
+
+      for (int i = 0; i < buttonLabels.length; i++) {
+        if (!isHeartActiveList[i]) {
+          tempLabels.add(buttonLabels[i]);
+          tempHearts.add(false);
+        }
+      }
+
+      buttonLabels = tempLabels;
+      isHeartActiveList = tempHearts;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -62,14 +86,9 @@ class _ButtonListState extends State<ButtonList> {
                   onPressed: () {
                     moveButtonToTop(index);
                     if (index > 0) {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => RISS()));
                       // 페이지 이동 로직 추가
-                      if (index == 1) {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => DBpia()));
-                      } else if (index == 2) {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => DBpia()));
-                      }
-                      // 다른 페이지에 대한 로직도 추가할 수 있습니다.
+                      // 예시로 DBpia 페이지로 이동하도록 설정
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => DBpia()));
                     }
                   },
                   child: Row(
@@ -79,6 +98,7 @@ class _ButtonListState extends State<ButtonList> {
                       IconButton(
                         onPressed: () {
                           toggleHeart(index);
+                          sortListByHeart(); // 하트를 토글할 때마다 정렬 수행
                         },
                         icon: Icon(
                           Icons.favorite,
@@ -93,6 +113,20 @@ class _ButtonListState extends State<ButtonList> {
           ),
         );
       },
+    );
+  }
+}
+
+class DBpia extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('DBpia Page'),
+      ),
+      body: Center(
+        child: Text('This is the DBpia page.'),
+      ),
     );
   }
 }

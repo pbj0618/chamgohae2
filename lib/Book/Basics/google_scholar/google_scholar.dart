@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class google_scholar extends StatelessWidget {
   const google_scholar({super.key});
 
   @override
   Widget build(BuildContext context) {
-
     List<String> howuse = [
       "사이트 설명",
       "사이트 사용법",
@@ -18,14 +18,44 @@ class google_scholar extends StatelessWidget {
         appBar: AppBar(
           title: Text('Google Scholar / 구글 학술 검색'),
           actions: <Widget>[
+            Container(
+              width: 180,
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30.0),
+              ),
+              child: InkWell(
+                onTap: () {
+                  final uri =
+                      Uri.parse('https://scholar.google.co.kr/');
+                  launchUrl(uri);
+                },
+                child: Container(
+                  padding: EdgeInsets.all(10),
+                  child: Text(
+                    '사이트 이동',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontFamily: 'NotoSansKR',
+                      fontWeight: FontWeight.w900,
+                      color: Color(0xff002244),
+                    ),
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.0),
+                    color: Color(0xffFFFFFF),
+                  ),
+                ),
+              ),
+            ),
           ],
-          bottom : TabBar(
+          bottom: TabBar(
             tabs: List.generate(
                 howuse.length,
-                    (index) => Tab(
-                  text: howuse[index],
-                )
-            ),
+                (index) => Tab(
+                      text: howuse[index],
+                    )),
             indicatorSize: TabBarIndicatorSize.label,
             isScrollable: true,
           ),
@@ -76,7 +106,6 @@ class google_scholar extends StatelessWidget {
                   padding: EdgeInsets.fromLTRB(10, 10, 10, 3),
                   child: Text(
                     "- 영어 논문 검색에 유용함 ",
-
                     style: TextStyle(
                       fontSize: 15,
                       fontFamily: 'NotoSansKR',
@@ -97,7 +126,6 @@ class google_scholar extends StatelessWidget {
                 ),
               ],
             ),
-
             ListView(
               children: <Widget>[
                 SizedBox(
@@ -117,7 +145,8 @@ class google_scholar extends StatelessWidget {
               children: [
                 Container(
                   padding: EdgeInsets.all(10),
-                  child: Text("위 사이트는 무료가 대부분이나, 유료는 이어진 사이트에서 인증할 수 있습니다",
+                  child: Text(
+                    "위 사이트는 무료가 대부분이나, 유료는 이어진 사이트에서 인증할 수 있습니다",
                     style: TextStyle(
                       fontSize: 15,
                       fontFamily: 'NotoSansKR',

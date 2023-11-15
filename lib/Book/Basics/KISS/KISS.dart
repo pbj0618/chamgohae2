@@ -17,7 +17,39 @@ class KISS extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text('KISS / 한국학술정보'),
-          actions: <Widget>[],
+          actions: <Widget>[
+            Container(
+              width: 180,
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30.0),
+              ),
+              child: InkWell(
+                onTap: () {
+                  final uri =
+                      Uri.parse('https://kiss.kstudy.com');
+                  launchUrl(uri);
+                },
+                child: Container(
+                  padding: EdgeInsets.all(10),
+                  child: Text(
+                    '사이트 이동',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontFamily: 'NotoSansKR',
+                      fontWeight: FontWeight.w900,
+                      color: Color(0xff002244),
+                    ),
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.0),
+                    color: Color(0xffFFFFFF),
+                  ),
+                ),
+              ),
+            ),
+          ],
           bottom: TabBar(
             tabs: List.generate(
                 howuse.length,
