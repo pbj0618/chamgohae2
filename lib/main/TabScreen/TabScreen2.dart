@@ -1,5 +1,3 @@
-import 'package:chamgohae1/Book/Basics/DBpia/DBpia.dart';
-import 'package:chamgohae1/Book/Basics/RISS/RISS.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -33,6 +31,12 @@ class _ButtonListState extends State<ButtonList> {
       buttonLabels.insert(0, selectedButton);
       isHeartActiveList[index] = true;
     });
+
+    // 페이지 이동 로직 추가
+    // 예시로 DBpia 페이지로 이동하도록 설정
+    if (index > 0) {
+      Navigator.push(context, MaterialPageRoute(builder: (context) => DBpia()));
+    }
   }
 
   void toggleHeart(int index) {
@@ -82,30 +86,31 @@ class _ButtonListState extends State<ButtonList> {
           title: Row(
             children: [
               Expanded(
-                child: ElevatedButton(
-                  onPressed: () {
+                child: GestureDetector(
+                  onTap: () {
                     moveButtonToTop(index);
-                    if (index > 0) {
-                      // 페이지 이동 로직 추가
-                      // 예시로 DBpia 페이지로 이동하도록 설정
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => DBpia()));
-                    }
                   },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(buttonLabels[index]),
-                      IconButton(
-                        onPressed: () {
-                          toggleHeart(index);
-                          sortListByHeart(); // 하트를 토글할 때마다 정렬 수행
-                        },
-                        icon: Icon(
-                          Icons.favorite,
-                          color: isHeartActiveList[index] ? Colors.red : Colors.grey,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      // 버튼 눌렀을 때의 동작
+                      // 여기에 필요한 동작 추가
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(buttonLabels[index]),
+                        IconButton(
+                          onPressed: () {
+                            toggleHeart(index);
+                            sortListByHeart(); // 하트를 토글할 때마다 정렬 수행
+                          },
+                          icon: Icon(
+                            Icons.favorite,
+                            color: isHeartActiveList[index] ? Colors.red : Colors.grey,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
