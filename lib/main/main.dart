@@ -16,6 +16,9 @@ import 'package:chamgohae1/main/TabScreen/TabScreen1.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:chamgohae1/firebase_options.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
+import 'package:chamgohae1/Login_page/Loginpage.dart';
+import 'package:chamgohae1/Login_page/Logoutpage.dart';
 
 List<String> banner = ['assets/banner1.png', 'assets/banner1.png'];
 
@@ -24,8 +27,16 @@ void main() async{
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  KakaoSdk.init(
+    nativeAppKey: '4d6b2e439a8a3c2337f39a8c7e3e54b4',
+    javaScriptAppKey: 'e8e76a20c2e86ed6d04c8f224ce2d321',
+  );
+
   runApp(MyApp());
 }
+
+
 
 class MyApp extends StatefulWidget {
   @override
@@ -55,7 +66,17 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Chamgohae',
       theme: ThemeData(
-          scaffoldBackgroundColor: Colors.white,
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            backgroundColor: Colors.black,
+            primary: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
+            minimumSize: const Size(400, 60),
+          ),
+        ),
+    scaffoldBackgroundColor: Colors.white,
           primarySwatch:
           ColorService.createMaterialColor(const Color(0xff002244)),
           fontFamily: 'NotoSansKR'),

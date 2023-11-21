@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:chamgohae1/main/Setting.dart';
 import 'package:chamgohae1/main/QnAPage.dart';
 import 'package:chamgohae1/main/main.dart';
+import 'package:chamgohae1/Login_page/Loginpage.dart';
 
 class TabScreen3 extends StatelessWidget {
   const TabScreen3({super.key});
@@ -44,6 +45,22 @@ class TabScreen3 extends StatelessWidget {
                 bottomRight: Radius.circular(40.0),
               ),
             ),
+          ),
+          ListTile(
+            leading: Icon(Icons.login,
+              color: Colors.grey[850],
+            ),
+            title: Text('Login'),
+            onTap: () {
+              print('login is clicked');
+              Navigator.push(context,
+                MaterialPageRoute(builder: (BuildContext context) {
+                  return LoginPage();
+                }
+                ),
+              );
+            },
+            trailing: Icon(Icons.add),
           ),
           ListTile(
             leading: Icon(Icons.home,
