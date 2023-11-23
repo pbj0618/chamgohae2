@@ -21,8 +21,6 @@ import 'package:chamgohae1/firebase_options.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
-import 'package:chamgohae1/Login_page/Loginpage.dart';
-import 'package:chamgohae1/Login_page/Logoutpage.dart';
 
 List<String> banner = ['assets/banner1.png', 'assets/banner1.png'];
 

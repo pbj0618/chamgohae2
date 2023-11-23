@@ -1,11 +1,9 @@
 import 'package:chamgohae1/Login_page/Loginpage2.dart';
-import 'package:chamgohae1/Login_page/Logoutpage.dart';
 import 'package:chamgohae1/Login_page/Viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:chamgohae1/main/Setting.dart';
 import 'package:chamgohae1/main/QnAPage.dart';
 import 'package:chamgohae1/main/main.dart';
-import 'package:chamgohae1/Login_page/Loginpage.dart';
 import 'package:provider/provider.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:chamgohae1/UserProvider/User_Provider.dart';
