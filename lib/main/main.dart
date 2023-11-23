@@ -1,6 +1,9 @@
+import 'dart:js';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:chamgohae1/Book/Basics/Basics.dart';
 import 'package:chamgohae1/Book/Basics/DBpia/DBpia.dart';
+import 'package:chamgohae1/UserProvider/User_Provider.dart';
 import 'package:chamgohae1/firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:chamgohae1/main/Bookmark.dart';
@@ -15,6 +18,7 @@ import 'package:chamgohae1/main/TabScreen/TabScreen3.dart';
 import 'package:chamgohae1/main/TabScreen/TabScreen1.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:chamgohae1/firebase_options.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:chamgohae1/Login_page/Loginpage.dart';
@@ -22,7 +26,7 @@ import 'package:chamgohae1/Login_page/Logoutpage.dart';
 
 List<String> banner = ['assets/banner1.png', 'assets/banner1.png'];
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -33,10 +37,13 @@ void main() async{
     javaScriptAppKey: 'e8e76a20c2e86ed6d04c8f224ce2d321',
   );
 
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => UserProvider(),
+      child: MyApp(),
+    ),
+  );
 }
-
-
 
 class MyApp extends StatefulWidget {
   @override
@@ -66,19 +73,19 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Chamgohae',
       theme: ThemeData(
-        textButtonTheme: TextButtonThemeData(
-          style: TextButton.styleFrom(
-            backgroundColor: Colors.black,
-            primary: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30),
+          textButtonTheme: TextButtonThemeData(
+            style: TextButton.styleFrom(
+              backgroundColor: Colors.black,
+              primary: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+              minimumSize: const Size(400, 60),
             ),
-            minimumSize: const Size(400, 60),
           ),
-        ),
-    scaffoldBackgroundColor: Colors.white,
+          scaffoldBackgroundColor: Colors.white,
           primarySwatch:
-          ColorService.createMaterialColor(const Color(0xff002244)),
+              ColorService.createMaterialColor(const Color(0xff002244)),
           fontFamily: 'NotoSansKR'),
       home: Scaffold(
         appBar: AppBar(
