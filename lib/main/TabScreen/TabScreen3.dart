@@ -98,23 +98,6 @@ class _TabScreen3State extends State<TabScreen3> {
           ),
           ListTile(
             leading: Icon(
-              Icons.home,
-              color: Colors.grey[850],
-            ),
-            title: Text('Home'),
-            onTap: () {
-              print('home is clicked');
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (BuildContext context) {
-                  return MyApp();
-                }),
-              );
-            },
-            trailing: Icon(Icons.add),
-          ),
-          ListTile(
-            leading: Icon(
               Icons.settings,
               color: Colors.grey[850],
             ),

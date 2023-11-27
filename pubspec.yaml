@@ -98,6 +98,15 @@ flutter:
     - assets/Dlibrary/
     - assets/KISS/
     - assets/google_scholar/
+    - assets/Nanet/
+    - assets/Kossda/
+    - assets/Ksdc/
+    - assets/Cnc/
+    - assets/KRpia/
+    - assets/google_trend/
+    - assets/Science_on/
+    - assets/Pubmed/
+    - assets/Nature/
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

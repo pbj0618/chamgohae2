@@ -1,3 +1,7 @@
+import 'package:chamgohae1/Book/Science/Nature/Nature.dart';
+import 'package:chamgohae1/Book/Science/Pubmed/Pubmed.dart';
+import 'package:chamgohae1/Book/Science/Science_library/Science_library.dart';
+import 'package:chamgohae1/Book/Science/Science_on/Science_on.dart';
 import 'package:flutter/material.dart';
 import 'package:chamgohae1/main/main.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +34,7 @@ class Science extends StatelessWidget {
                 width: 400,
                 child: ElevatedButton(
                   child:
-                  Text('DBpia / 디비피아'),
+                  Text('Science library / 국가과학전자도서관'),
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.all(30.0),
                     side: BorderSide(color: Color(0xffB3995D),
@@ -44,7 +48,7 @@ class Science extends StatelessWidget {
                     Navigator.push(context,
                       MaterialPageRoute(
                           builder: (BuildContext context) {
-                            return DBpia();
+                            return Science_library();
                           }
                       ),
                     );
@@ -59,8 +63,8 @@ class Science extends StatelessWidget {
                 width: 400,
                 child: ElevatedButton(
                   child:
-                  Text('RISS / 학술연구정보서비스'),
-                  style: ElevatedButton.styleFrom(
+                  Text('Nature / 해외 자연과학 학술지'),
+    style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.all(30.0),
                     side: BorderSide(color: Color(0xffB3995D),
                     ),
@@ -73,7 +77,7 @@ class Science extends StatelessWidget {
                     Navigator.push(context,
                       MaterialPageRoute(
                           builder: (BuildContext context) {
-                            return DBpia();
+                            return Nature();
                           }
                       ),
                     );
@@ -88,7 +92,7 @@ class Science extends StatelessWidget {
                 width: 400,
                 child: ElevatedButton(
                   child:
-                  Text('KISS / 한국학술정보'),
+                  Text('Science on'),
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.all(30.0),
                     side: BorderSide(color: Color(0xffB3995D),
@@ -102,7 +106,7 @@ class Science extends StatelessWidget {
                     Navigator.push(context,
                       MaterialPageRoute(
                           builder: (BuildContext context) {
-                            return DBpia();
+                            return Science_on();
                           }
                       ),
                     );
@@ -117,7 +121,7 @@ class Science extends StatelessWidget {
                 width: 400,
                 child: ElevatedButton(
                   child:
-                  Text('Google Scholar / 구글 학술 검색'),
+                  Text('NCBI / 해외 생명과학 학술지'),
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.all(30.0),
                     side: BorderSide(color: Color(0xffB3995D),
@@ -131,36 +135,7 @@ class Science extends StatelessWidget {
                     Navigator.push(context,
                       MaterialPageRoute(
                           builder: (BuildContext context) {
-                            return DBpia();
-                          }
-                      ),
-                    );
-                  },
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.all(10.0),
-                margin: EdgeInsets.all(10.0),
-              ),
-              Container(
-                width: 400,
-                child: ElevatedButton(
-                  child:
-                  Text('국가전자도서관'),
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.all(30.0),
-                    side: BorderSide(color: Color(0xffB3995D),
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                  ),
-
-                  onPressed: () {
-                    Navigator.push(context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) {
-                             return DBpia();
+                            return Pubmed();
                           }
                       ),
                     );

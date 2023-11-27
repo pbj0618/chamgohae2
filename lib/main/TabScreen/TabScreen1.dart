@@ -14,6 +14,9 @@ import 'package:chamgohae1/main/Setting.dart';
 import 'package:chamgohae1/main/TabScreen/TabScreen2.dart';
 import 'package:chamgohae1/main/TabScreen/TabScreen3.dart';
 import 'package:chamgohae1/main/TabScreen/TabScreen1.dart';
+import 'package:chamgohae1/Homework/Homework.dart';
+import 'package:chamgohae1/Trend/Trend.dart';
+import 'package:chamgohae1/main/TabScreen/TabScreen0.dart';
 
 List<String> banner = ['assets/banner1.png', 'assets/banner1.png'];
 
@@ -69,7 +72,7 @@ class TabScreen1 extends StatelessWidget {
                       width: 400,
                       child: ElevatedButton(
                         child: Text(
-                          '기초 자료 사이트',
+                          '논문 정보 사이트',
                           style: TextStyle(fontSize: 20),
                         ),
                         style: ElevatedButton.styleFrom(
@@ -85,7 +88,7 @@ class TabScreen1 extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (BuildContext context) {
-                              return Basics();
+                              return TabScreen0();
                             }),
                           );
                         },
@@ -105,7 +108,7 @@ class TabScreen1 extends StatelessWidget {
                       width: 400,
                       child: ElevatedButton(
                         child: Text(
-                          '인문 사회 계열 사이트',
+                          '트렌드 분석 사이트',
                           style: TextStyle(fontSize: 20),
                         ),
                         style: ElevatedButton.styleFrom(
@@ -121,7 +124,7 @@ class TabScreen1 extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (BuildContext context) {
-                              return Society();
+                              return Trend();
                             }),
                           );
                         },
@@ -141,7 +144,7 @@ class TabScreen1 extends StatelessWidget {
                       width: 400,
                       child: ElevatedButton(
                         child: Text(
-                          '자연 과학 계열 사이트,',
+                          '과제 도움 사이트',
                           style: TextStyle(fontSize: 20),
                         ),
                         style: ElevatedButton.styleFrom(
@@ -157,7 +160,7 @@ class TabScreen1 extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (BuildContext context) {
-                              return Science();
+                              return Homework();
                             }),
                           );
                         },

@@ -1,22 +1,30 @@
-import 'package:chamgohae1/Book/Basics/DBpia/DBpia.dart';
-import 'package:chamgohae1/Book/Basics/RISS/RISS.dart';
+import 'package:chamgohae1/Book/Society/Cnc/Cnc.dart';
+import 'package:chamgohae1/Book/Society/KRpia/Kpia.dart';
+import 'package:chamgohae1/Book/Society/Kossda/Kossda.dart';
+import 'package:chamgohae1/Book/Society/Ksdc/Ksdc.dart';
 import 'package:flutter/material.dart';
-import 'package:chamgohae1/Book/Basics/KISS/KISS.dart';
-import 'package:chamgohae1/Book/Basics/Dlibrary/Dlibrary.dart';
-import 'package:chamgohae1/Book/Basics/google_scholar/google_scholar.dart';
-import 'package:chamgohae1/Book/Basics/Nanet/Nanet.dart';
+import 'package:chamgohae1/main/main.dart';
+import 'package:flutter/material.dart';
+import 'package:chamgohae1/main/Bookmark.dart';
+import 'package:chamgohae1/main/Search1.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:chamgohae1/Book/Basics/DBpia/DBpia.dart';
+import 'package:chamgohae1/Book/Society/Kossda/Kossda.dart';
+import 'package:chamgohae1/Book/Society/Ksdc/Ksdc.dart';
+import 'package:chamgohae1/Book/Society/Cnc/Cnc.dart';
+import 'package:chamgohae1/Book/Society/KRpia/Kpia.dart';
 
-class Basics extends StatelessWidget {
-  const Basics({super.key});
+class Homework extends StatelessWidget {
+  const Homework({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('기초 자료 사이트'),
+        title: Text('과제 도움 사이트',
+        ),
         centerTitle: true,
         elevation: 0.0,
-        actions: <Widget>[]
       ),
       body: ListView(
         children: [
@@ -31,37 +39,8 @@ class Basics extends StatelessWidget {
               Container(
                 width: 400,
                 child: ElevatedButton(
-                child:
-                Text('DBpia / 디비피아'),
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.all(30.0),
-                    side: BorderSide(color: Color(0xffB3995D),
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                  ),
-
-                onPressed: () {
-                  Navigator.push(context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) {
-                          return DBpia();
-                        }
-                    ),
-                  );
-                },
-              ),
-              ),
-              Container(
-                padding: EdgeInsets.all(10.0),
-                margin: EdgeInsets.all(10.0),
-              ),
-              Container(
-                width: 400,
-                child: ElevatedButton(
                   child:
-                  Text('Google Scholar / 구글 학술 검색'),
+                  Text('구글 트렌드'),
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.all(30.0),
                     side: BorderSide(color: Color(0xffB3995D),
@@ -75,7 +54,7 @@ class Basics extends StatelessWidget {
                     Navigator.push(context,
                       MaterialPageRoute(
                           builder: (BuildContext context) {
-                            return google_scholar();
+                            return Kossda();
                           }
                       ),
                     );
@@ -90,7 +69,7 @@ class Basics extends StatelessWidget {
                 width: 400,
                 child: ElevatedButton(
                   child:
-                  Text('RISS / 학술연구정보서비스'),
+                  Text('네이버 학술정보 연구트렌드 분석'),
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.all(30.0),
                     side: BorderSide(color: Color(0xffB3995D),
@@ -104,7 +83,7 @@ class Basics extends StatelessWidget {
                     Navigator.push(context,
                       MaterialPageRoute(
                           builder: (BuildContext context) {
-                            return RISS();
+                            return Ksdc();
                           }
                       ),
                     );
@@ -119,7 +98,7 @@ class Basics extends StatelessWidget {
                 width: 400,
                 child: ElevatedButton(
                   child:
-                  Text('KISS / 한국학술정보'),
+                  Text('네이버 데이터랩'),
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.all(30.0),
                     side: BorderSide(color: Color(0xffB3995D),
@@ -133,7 +112,7 @@ class Basics extends StatelessWidget {
                     Navigator.push(context,
                       MaterialPageRoute(
                           builder: (BuildContext context) {
-                            return KISS();
+                            return Cnc();
                           }
                       ),
                     );
@@ -148,7 +127,7 @@ class Basics extends StatelessWidget {
                 width: 400,
                 child: ElevatedButton(
                   child:
-                  Text('국회전자도서관'),
+                  Text('Nature'),
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.all(30.0),
                     side: BorderSide(color: Color(0xffB3995D),
@@ -162,7 +141,7 @@ class Basics extends StatelessWidget {
                     Navigator.push(context,
                       MaterialPageRoute(
                           builder: (BuildContext context) {
-                            return Nanet();
+                            return Cnc();
                           }
                       ),
                     );
@@ -177,7 +156,7 @@ class Basics extends StatelessWidget {
                 width: 400,
                 child: ElevatedButton(
                   child:
-                  Text('국가전자도서관'),
+                  Text('IT FIND'),
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.all(30.0),
                     side: BorderSide(color: Color(0xffB3995D),
@@ -191,7 +170,36 @@ class Basics extends StatelessWidget {
                     Navigator.push(context,
                       MaterialPageRoute(
                           builder: (BuildContext context) {
-                            return Dlibrary();
+                            return KRpia();
+                          }
+                      ),
+                    );
+                  },
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.all(10.0),
+                margin: EdgeInsets.all(10.0),
+              ),
+              Container(
+                width: 400,
+                child: ElevatedButton(
+                  child:
+                  Text('블랙키위'),
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.all(30.0),
+                    side: BorderSide(color: Color(0xffB3995D),
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                  ),
+
+                  onPressed: () {
+                    Navigator.push(context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) {
+                            return KRpia();
                           }
                       ),
                     );

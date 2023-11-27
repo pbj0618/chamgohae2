@@ -3,8 +3,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class DBpia extends StatelessWidget {
-  const DBpia({Key? key}) : super(key: key);
+class Kossda extends StatelessWidget {
+  const Kossda({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class DBpia extends StatelessWidget {
       length: howuse.length,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('디비피아'),
+          title: Text('KOSSDA'),
           actions: <Widget>[
             Container(
               width: 180,
@@ -28,7 +28,7 @@ class DBpia extends StatelessWidget {
               ),
               child: InkWell(
                 onTap: () {
-                  final uri = Uri.parse('https://www.dbpia.co.kr/');
+                  final uri = Uri.parse('https://kossda.snu.ac.kr/');
                   launchUrl(uri);
                 },
                 child: Container(
@@ -72,116 +72,111 @@ class DBpia extends StatelessWidget {
                 ),
                 Container(
                   padding: EdgeInsets.fromLTRB(25, 10, 25, 5),
-                child: Text(
-                  "DBpia",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: 'NotoSansKR',
-                    fontWeight: FontWeight.w900,
+                  child: Text(
+                    "KOSSDA / 한국사회과학자료원",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontFamily: 'NotoSansKR',
+                      fontWeight: FontWeight.w900,
+                    ),
                   ),
-                ),
                 ),
                 Container(
                   padding: EdgeInsets.all(10.0),
-                child: Text(
-                  "전자저널 논문, 참고 자료, 등을 검색할 수 있는 유/무료 통합 플랫폼 논문 사이트",
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontFamily: 'NotoSansKR',
-                    fontWeight: FontWeight.w900,
+                  child: Text(
+                    "연구기관들과 개인 연구자들이 산출하는 조사자료, 통계자료, 등의 연구자료를 수집한 디지털 DB 서비스",
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontFamily: 'NotoSansKR',
+                      fontWeight: FontWeight.w900,
+                    ),
                   ),
-                ),
                 ),
                 Container(
                   padding: EdgeInsets.fromLTRB(25, 10, 25, 5),
-                child: Text(
-                  "사이트 특징",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: 'NotoSansKR',
-                    fontWeight: FontWeight.w900,
+                  child: Text(
+                    "사이트 특징",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontFamily: 'NotoSansKR',
+                      fontWeight: FontWeight.w900,
+                    ),
                   ),
                 ),
-                ), 
                 Container(
                   padding: EdgeInsets.fromLTRB(10, 10, 10, 3),
-                child: Text(
-                  "- 검색 시 항목별 검색으로 주제분류 / 간행물 / 간행기관 / 저자 등으로 구분해서 검색이 가능함 ",
-                  
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontFamily: 'NotoSansKR',
-                    fontWeight: FontWeight.w900,
+                  child: Text(
+                    "- 인문 사회 자료 검색 시 자료유형, 주제, 시리즈, 키워드 등등으로 분류되어 있어 원하는 자료를 찾기에 용이함 ",
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontFamily: 'NotoSansKR',
+                      fontWeight: FontWeight.w900,
+                    ),
                   ),
-                ),
                 ),
                 Container(
                   padding: EdgeInsets.fromLTRB(10, 4, 10, 0),
-                child: Text(
-                  "- 개인 맞춤 추천 항목이 있어 원하는 주제에 대한 기초 자료를 받아볼 수 있음",
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontFamily: 'NotoSansKR',
-                    fontWeight: FontWeight.w900,
+                  child: Text(
+                    "- 학위 논문 외의 다른 출처의 자료를 찾으려 할 때 유용함",
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontFamily: 'NotoSansKR',
+                      fontWeight: FontWeight.w900,
+                    ),
                   ),
                 ),
+                Container(
+                  padding: EdgeInsets.fromLTRB(10, 10, 10, 3),
+                  child: Text(
+                    "- 연간 다운로드 가능 건수는 30건임",
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontFamily: 'NotoSansKR',
+                      fontWeight: FontWeight.w900,
+                    ),
+                  ),
                 ),
               ],
             ),
             ListView(
               children: <Widget>[
                 SizedBox(
-                  child: Image.asset('assets/DBpia/슬라이드0002.png'),
+                  child: Image.asset('assets/Kossda/슬라이드0002.png'),
                 ),
                 SizedBox(
-                  child: Image.asset('assets/DBpia/슬라이드0003.png'),
+                  child: Image.asset('assets/Kossda/슬라이드0003.png'),
                 ),
                 SizedBox(
-                  child: Image.asset('assets/DBpia/슬라이드0004.png'),
+                  child: Image.asset('assets/Kossda/슬라이드0004.png'),
                 ),
                 SizedBox(
-                  child: Image.asset('assets/DBpia/슬라이드0005.png'),
+                  child: Image.asset('assets/Kossda/슬라이드0005.png'),
                 ),
                 SizedBox(
-                  child: Image.asset('assets/DBpia/슬라이드0006.png'),
+                  child: Image.asset('assets/Kossda/슬라이드0006.png'),
                 ),
                 SizedBox(
-                  child: Image.asset('assets/DBpia/슬라이드0007.png'),
+                  child: Image.asset('assets/Kossda/슬라이드0007.png'),
                 ),
                 SizedBox(
-                  child: Image.asset('assets/DBpia/슬라이드0008.png'),
+                  child: Image.asset('assets/Kossda/슬라이드0008.png'),
                 ),
               ],
             ),
             Column(
-              children: <Widget>[
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
                 Container(
-                  padding: EdgeInsets.all(5.0),
-                  margin: EdgeInsets.all(5.0),
-                ),
-                InkWell(
-                  child: Container(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(15.0),
-                      child: Container(
-                        child: Text(
-                          '소속 기관 / 학교 연계 확인',
-                          textAlign:  TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      color: Color(0xff002244),
-                      padding: EdgeInsets.all(30.0),
-                      width: 400,
+                  padding: EdgeInsets.all(10),
+                  child: Text(
+                    "위 사이트는 로그인 후 별도의 인증없이 무료로 이용하실 수 있습니다",
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontFamily: 'NotoSansKR',
+                      fontWeight: FontWeight.w900,
                     ),
                   ),
-                  ),
-                  onTap: () {
-                    final uri =
-                    Uri.parse('https://www.dbpia.co.kr/member/b2bLogin');
-                    launchUrl(uri);
-                  },
                 ),
               ],
             ),

@@ -1,3 +1,7 @@
+import 'package:chamgohae1/Book/Society/Cnc/Cnc.dart';
+import 'package:chamgohae1/Book/Society/KRpia/Kpia.dart';
+import 'package:chamgohae1/Book/Society/Kossda/Kossda.dart';
+import 'package:chamgohae1/Book/Society/Ksdc/Ksdc.dart';
 import 'package:flutter/material.dart';
 import 'package:chamgohae1/main/main.dart';
 import 'package:flutter/material.dart';
@@ -5,6 +9,10 @@ import 'package:chamgohae1/main/Bookmark.dart';
 import 'package:chamgohae1/main/Search1.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:chamgohae1/Book/Basics/DBpia/DBpia.dart';
+import 'package:chamgohae1/Book/Society/Kossda/Kossda.dart';
+import 'package:chamgohae1/Book/Society/Ksdc/Ksdc.dart';
+import 'package:chamgohae1/Book/Society/Cnc/Cnc.dart';
+import 'package:chamgohae1/Book/Society/KRpia/Kpia.dart';
 
 class Society extends StatelessWidget {
   const Society({super.key});
@@ -32,7 +40,7 @@ class Society extends StatelessWidget {
                 width: 400,
                 child: ElevatedButton(
                   child:
-                  Text('DBpia / 디비피아'),
+                  Text('KOSSDA / 한국사회과학자료원'),
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.all(30.0),
                     side: BorderSide(color: Color(0xffB3995D),
@@ -46,7 +54,7 @@ class Society extends StatelessWidget {
                     Navigator.push(context,
                       MaterialPageRoute(
                           builder: (BuildContext context) {
-                            return DBpia();
+                            return Kossda();
                           }
                       ),
                     );
@@ -61,7 +69,7 @@ class Society extends StatelessWidget {
                 width: 400,
                 child: ElevatedButton(
                   child:
-                  Text('RISS / 학술연구정보서비스'),
+                  Text('KSDC / 한국사회과학데이터센터'),
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.all(30.0),
                     side: BorderSide(color: Color(0xffB3995D),
@@ -75,7 +83,7 @@ class Society extends StatelessWidget {
                     Navigator.push(context,
                       MaterialPageRoute(
                           builder: (BuildContext context) {
-                            return DBpia();
+                            return Ksdc();
                           }
                       ),
                     );
@@ -90,7 +98,7 @@ class Society extends StatelessWidget {
                 width: 400,
                 child: ElevatedButton(
                   child:
-                  Text('KISS / 한국학술정보'),
+                  Text('CNC 학술정보'),
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.all(30.0),
                     side: BorderSide(color: Color(0xffB3995D),
@@ -104,7 +112,7 @@ class Society extends StatelessWidget {
                     Navigator.push(context,
                       MaterialPageRoute(
                           builder: (BuildContext context) {
-                            return DBpia();
+                            return Cnc();
                           }
                       ),
                     );
@@ -119,7 +127,7 @@ class Society extends StatelessWidget {
                 width: 400,
                 child: ElevatedButton(
                   child:
-                  Text('Google Scholar / 구글 학술 검색'),
+                  Text('KRpia / 한국 지식콘텐츠'),
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.all(30.0),
                     side: BorderSide(color: Color(0xffB3995D),
@@ -133,36 +141,7 @@ class Society extends StatelessWidget {
                     Navigator.push(context,
                       MaterialPageRoute(
                           builder: (BuildContext context) {
-                            return DBpia();
-                          }
-                      ),
-                    );
-                  },
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.all(10.0),
-                margin: EdgeInsets.all(10.0),
-              ),
-              Container(
-                width: 400,
-                child: ElevatedButton(
-                  child:
-                  Text('국가전자도서관'),
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.all(30.0),
-                    side: BorderSide(color: Color(0xffB3995D),
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                  ),
-
-                  onPressed: () {
-                    Navigator.push(context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) {
-                            return DBpia();
+                            return KRpia();
                           }
                       ),
                     );
