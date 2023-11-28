@@ -7,6 +7,8 @@ import 'package:chamgohae1/main/main.dart';
 import 'package:provider/provider.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:chamgohae1/UserProvider/User_Provider.dart';
+import 'package:chamgohae1/main/Customer.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   KakaoSdk.init(nativeAppKey: '033ae651eac2b2c9d95f492284197bdb');
@@ -60,9 +62,6 @@ class _TabScreen3State extends State<TabScreen3> {
               'pbj0618@naver.com',
               style: TextStyle(color: Colors.white),
             ),
-            onDetailsPressed: () {
-              print('arrow is clicked');
-            },
             decoration: BoxDecoration(
               color: Color(0xff1D3557),
               borderRadius: BorderRadius.only(
@@ -76,7 +75,7 @@ class _TabScreen3State extends State<TabScreen3> {
               Icons.login,
               color: Colors.grey[850],
             ),
-            title: Text('Kakao Login'),
+            title: Text('카카오 로그인'),
             autofocus: true,
             onTap: () async {
               await viewModel.login();
@@ -89,7 +88,7 @@ class _TabScreen3State extends State<TabScreen3> {
               Icons.logout_outlined,
               color: Colors.grey[850],
             ),
-            title: Text('Kakao Logout'),
+            title: Text('카카오 로그아웃'),
             onTap: () async {
               await viewModel.logout();
               setState(() {});
@@ -101,7 +100,7 @@ class _TabScreen3State extends State<TabScreen3> {
               Icons.settings,
               color: Colors.grey[850],
             ),
-            title: Text('Settings'),
+            title: Text('설정'),
             onTap: () {
               print('Settings is clicked');
               Navigator.push(
@@ -110,6 +109,18 @@ class _TabScreen3State extends State<TabScreen3> {
                   return Setting();
                 }),
               );
+            },
+            trailing: Icon(Icons.add),
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.contact_page,
+              color: Colors.grey[850],
+            ),
+            title: Text('카카오 문의하기'),
+            onTap: () {
+              final uri = Uri.parse('http://pf.kakao.com/_wDpGG');
+              launchUrl(uri);
             },
             trailing: Icon(Icons.add),
           ),

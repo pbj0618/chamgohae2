@@ -1,6 +1,6 @@
 import 'package:chamgohae1/Book/Science/Nature/Nature.dart';
 import 'package:chamgohae1/Book/Science/Pubmed/Pubmed.dart';
-import 'package:chamgohae1/Book/Science/Science_library/Science_library.dart';
+import 'package:chamgohae1/Book/Science/Korea_science/Korea_science.dart';
 import 'package:chamgohae1/Book/Science/Science_on/Science_on.dart';
 import 'package:flutter/material.dart';
 import 'package:chamgohae1/main/main.dart';
@@ -34,7 +34,7 @@ class Science extends StatelessWidget {
                 width: 400,
                 child: ElevatedButton(
                   child:
-                  Text('Science library / 국가과학전자도서관'),
+                  Text('Korea science / 한국과학기술정보연구원'),
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.all(30.0),
                     side: BorderSide(color: Color(0xffB3995D),
@@ -48,7 +48,7 @@ class Science extends StatelessWidget {
                     Navigator.push(context,
                       MaterialPageRoute(
                           builder: (BuildContext context) {
-                            return Science_library();
+                            return Korea_science();
                           }
                       ),
                     );
@@ -92,7 +92,7 @@ class Science extends StatelessWidget {
                 width: 400,
                 child: ElevatedButton(
                   child:
-                  Text('Science on'),
+                  Text('Science on / 국내 종합과학 학술지'),
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.all(30.0),
                     side: BorderSide(color: Color(0xffB3995D),

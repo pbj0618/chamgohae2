@@ -166,36 +166,6 @@ class Nature extends StatelessWidget {
                     ),
                   ],
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    InkWell(
-                      child: Container(
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(15.0),
-                          child: Container(
-                            child: Text(
-                              '소속 기관 / 학교 연계 확인',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.white,
-                              ),
-                            ),
-                            color: Color(0xff002244),
-                            padding: EdgeInsets.all(30.0),
-                            width: 400,
-                          ),
-                        ),
-                      ),
-                      onTap: () {
-                        final uri = Uri.parse(
-                            'https://www.ksdcdb.kr/intro/introMember.do');
-                        launchUrl(uri);
-                      },
-                    ),
-                  ],
-                ),
               ],
             ),
           ],
