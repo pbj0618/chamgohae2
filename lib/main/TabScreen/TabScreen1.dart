@@ -18,7 +18,6 @@ import 'package:chamgohae1/Homework/Homework.dart';
 import 'package:chamgohae1/Trend/Trend.dart';
 import 'package:chamgohae1/main/TabScreen/TabScreen0.dart';
 
-List<String> banner = ['assets/banner1.png', 'assets/banner1.png'];
 
 void onBannerPressed(BuildContext context, int index) {
   switch (index) {
@@ -41,8 +40,12 @@ void onBannerPressed(BuildContext context, int index) {
   }
 }
 
+
+
 class TabScreen1 extends StatelessWidget {
   const TabScreen1({super.key});
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -155,51 +158,62 @@ class TabScreen1 extends StatelessWidget {
   }
 }
 
+List<String> banner = ['assets/banner1.png', 'assets/banner1.png'];
+
 class BannerWidget extends StatelessWidget {
-  const BannerWidget({
-    super.key,
-  });
+  const BannerWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return CarouselSlider(
-      items: banner.map((image) {
-        int index = banner.indexOf(image); // forEach 루프 내에서 index 정의
-        return Stack(
-          children: [
-            Image.asset(
-              "${image}",
-              fit: BoxFit.cover,
-              width: double.infinity,
-            ),
-            GestureDetector(
-              onTap: () {
-                onBannerPressed(context, index);
-              },
-              child: Container(
-                width: double.infinity,
-                margin: EdgeInsets.symmetric(horizontal: 5.0),
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(image),
-                    fit: BoxFit.cover,
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
+      child: CarouselSlider.builder(
+        itemCount: banner.length,
+        options: CarouselOptions(
+          viewportFraction: 1.0,
+          initialPage: 0,
+          enableInfiniteScroll: true,
+          reverse: false,
+          autoPlay: true,
+          autoPlayInterval: Duration(seconds: 3),
+          autoPlayAnimationDuration: Duration(milliseconds: 800),
+          autoPlayCurve: Curves.fastOutSlowIn,
+          enlargeCenterPage: false,
+          scrollDirection: Axis.horizontal,
+        ),
+        itemBuilder: (context, itemIndex, realIndex) {
+          return Stack(
+            children: [
+              Image.asset(
+                "${banner[itemIndex]}",
+                fit: BoxFit.cover,
+                width: MediaQuery.of(context).size.width,
+              ),
+              Align(
+                alignment: Alignment.topRight,
+                child: Container(
+                  color: Colors.black38,
+                  padding: const EdgeInsets.all(4.0),
+                  margin: EdgeInsets.all(16.0),
+                  child: Text(
+                    (itemIndex + 1).toString() +
+                        " / " +
+                        banner.length.toString(),
                   ),
                 ),
-                child: Center(),
               ),
-            ),
-          ],
-        );
-      }).toList(),
-      options: CarouselOptions(
-        height: 200,
-        enlargeCenterPage: true,
-        enableInfiniteScroll: true,
-        autoPlay: true,
-        autoPlayInterval: Duration(seconds: 7),
+            ],
+          );
+        },
       ),
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (BuildContext context) {
+            return Basics();
+          }),
+        );
+      },
     );
-
-
   }
 }

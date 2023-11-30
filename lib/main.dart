@@ -1,25 +1,15 @@
-import 'dart:js';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:chamgohae1/Book/Basics/Basics.dart';
-import 'package:chamgohae1/Book/Basics/DBpia/DBpia.dart';
 import 'package:chamgohae1/UserProvider/User_Provider.dart';
-import 'package:chamgohae1/firebase_options.dart';
-import 'package:flutter/material.dart';
-import 'package:chamgohae1/main/Bookmark.dart';
-import 'package:chamgohae1/main/Search1.dart';
-import 'package:chamgohae1/Book/Bookmain.dart';
-import 'package:chamgohae1/AppUse/AppUse.dart';
 import 'package:chamgohae1/Widgethouse/CreativeColor.dart';
-import 'package:chamgohae1/main/QnAPage.dart';
-import 'package:chamgohae1/main/Setting.dart';
+import 'package:chamgohae1/firebase_options.dart';
+import 'package:chamgohae1/main/TabScreen/TabScreen1.dart';
 import 'package:chamgohae1/main/TabScreen/TabScreen2.dart';
 import 'package:chamgohae1/main/TabScreen/TabScreen3.dart';
-import 'package:chamgohae1/main/TabScreen/TabScreen1.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:chamgohae1/firebase_options.dart';
-import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter/material.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
+import 'package:provider/provider.dart';
 
 List<String> banner = ['assets/banner1.png', 'assets/banner1.png'];
 
@@ -125,42 +115,12 @@ class _MyAppState extends State<MyApp> {
 }
 
 class BannerWidget extends StatelessWidget {
-  const BannerWidget({
-    super.key,
-  });
+  final CarouselController _carouselController = CarouselController();
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
-      child: CarouselSlider.builder(
-        itemCount: banner.length,
-        options: CarouselOptions(height: 180.0, viewportFraction: 1.0),
-        itemBuilder: (context, itemIndex, realIndex) {
-          return Stack(
-            children: [
-              Image.asset(
-                "${banner[itemIndex]}",
-                fit: BoxFit.cover,
-                width: MediaQuery.of(context).size.width,
-              ),
-              Align(
-                alignment: Alignment.topRight,
-                child: Container(
-                  color: Colors.black38,
-                  padding: const EdgeInsets.all(4.0),
-                  margin: EdgeInsets.all(16.0),
-                  child: Text(
-                    (itemIndex + 1).toString() +
-                        " / " +
-                        banner.length.toString(),
-                  ),
-                ),
-              ),
-            ],
-          );
-        },
-      ),
       onPressed: () {
         Navigator.push(
           context,
@@ -169,6 +129,54 @@ class BannerWidget extends StatelessWidget {
           }),
         );
       },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 0.0), // 좌우 여백 조절
+        child: CarouselSlider.builder(
+          itemCount: banner.length,
+          carouselController: _carouselController,
+          options: CarouselOptions(
+            aspectRatio: MediaQuery.of(context).size.width /
+                MediaQuery.of(context).size.height,
+            viewportFraction: 1.0,
+            initialPage: 0,
+            enableInfiniteScroll: true,
+            reverse: false,
+            autoPlay: true,
+            autoPlayInterval: Duration(seconds: 3),
+            autoPlayAnimationDuration: Duration(milliseconds: 800),
+            autoPlayCurve: Curves.fastOutSlowIn,
+            enlargeCenterPage: false,
+            scrollDirection: Axis.horizontal,
+            onPageChanged: (index, reason) {
+              // 여기서 좌우로 스크롤될 때의 처리를 추가할 수 있습니다.
+            },
+          ),
+          itemBuilder: (context, itemIndex, realIndex) {
+            return Stack(
+              children: [
+                Image.asset(
+                  "${banner[itemIndex]}",
+                  fit: BoxFit.cover,
+                  width: MediaQuery.of(context).size.width,
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Container(
+                    color: Colors.black38,
+                    padding: const EdgeInsets.all(4.0),
+                    margin: EdgeInsets.all(16.0),
+                    child: Text(
+                      (itemIndex + 1).toString() +
+                          " / " +
+                          banner.length.toString(),
+                    ),
+                  ),
+                ),
+              ],
+            );
+          },
+        ),
+      ),
     );
   }
 }

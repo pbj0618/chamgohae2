@@ -93,6 +93,7 @@ flutter:
           weight: 900
   assets:
     - assets/
+    - assets/Logo/
     - assets/DBpia/
     - assets/RISS/
     - assets/Dlibrary/

@@ -49,48 +49,6 @@ class _TabScreen3State extends State<TabScreen3> {
       body: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          UserAccountsDrawerHeader(
-            currentAccountPicture: CircleAvatar(
-              child: Image.network(
-                  viewModel.user?.kakaoAccount?.profile?.profileImageUrl ?? ''),
-            ),
-            accountName: Text(
-              '${viewModel.isLogined}',
-              style: TextStyle(color: Colors.white),
-            ),
-            decoration: BoxDecoration(
-              color: Color(0xff1D3557),
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(40.0),
-                bottomRight: Radius.circular(40.0),
-              ),
-            ), accountEmail: null,
-          ),
-          ListTile(
-            leading: Icon(
-              Icons.login,
-              color: Colors.grey[850],
-            ),
-            title: Text('카카오 로그인'),
-            autofocus: true,
-            onTap: () async {
-              await viewModel.login();
-              setState(() {});
-            },
-            trailing: Icon(Icons.add),
-          ),
-          ListTile(
-            leading: Icon(
-              Icons.logout_outlined,
-              color: Colors.grey[850],
-            ),
-            title: Text('카카오 로그아웃'),
-            onTap: () async {
-              await viewModel.logout();
-              setState(() {});
-            },
-            trailing: Icon(Icons.add),
-          ),
           ListTile(
             leading: Icon(
               Icons.settings,

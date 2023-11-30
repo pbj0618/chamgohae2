@@ -12,12 +12,15 @@ class Naver_academy extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
+        title:
+        SafeArea(
+        child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('네이버 학술정보',
             ),
           ],
+        ),
         ),
         centerTitle: true,
         elevation: 0.0,

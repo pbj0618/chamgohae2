@@ -18,117 +18,90 @@ import 'package:chamgohae1/Book/Society/Cnc/Cnc.dart';
 import 'package:chamgohae1/Book/Society/KRpia/Kpia.dart';
 
 class Trend extends StatelessWidget {
-  const Trend({super.key});
+  const Trend({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('트렌드 분석 사이트',
-        ),
+        title: Text('트렌드 분석 사이트'),
         centerTitle: true,
         elevation: 0.0,
       ),
       body: ListView(
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                padding: EdgeInsets.all(5.0),
-                margin: EdgeInsets.all(5.0),
-              ),
-              Container(
-                width: 400,
-                child: ElevatedButton(
-                  child:
-                  Text('구글 트렌드'),
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.all(30.0),
-                    side: BorderSide(color: Color(0xffB3995D),
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                  ),
-
-                  onPressed: () {
-                    Navigator.push(context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) {
-                            return google_trend();
-                          }
-                      ),
-                    );
-                  },
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.all(10.0),
-                margin: EdgeInsets.all(10.0),
-              ),
-              Container(
-                width: 400,
-                child: ElevatedButton(
-                  child:
-                  Text('네이버 학술정보 연구트렌드 분석'),
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.all(30.0),
-                    side: BorderSide(color: Color(0xffB3995D),
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                  ),
-
-                  onPressed: () {
-                    Navigator.push(context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) {
-                            return Naver_academy();
-                          }
-                      ),
-                    );
-                  },
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.all(10.0),
-                margin: EdgeInsets.all(10.0),
-              ),
-              Container(
-                width: 400,
-                child: ElevatedButton(
-                  child:
-                  Text('네이버 데이터랩'),
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.all(30.0),
-                    side: BorderSide(color: Color(0xffB3995D),
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                  ),
-
-                  onPressed: () {
-                    Navigator.push(context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) {
-                            return Naver_datalab();
-                          }
-                      ),
-                    );
-                  },
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.all(10.0),
-                margin: EdgeInsets.all(10.0),
-              ),
-            ],
+          buildClickableContainer(
+            context,
+            'Googletrend.png',
+            '구글 트렌드',
+            '구글에서 서비스 중인 검색어 및 동영상 기반 빅데이터 분석 서비스',
+                () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => google_trend()));
+            },
+          ),
+          buildClickableContainer(
+            context,
+            'Naver.png',
+            '네이버 학술정보 연구트렌드 분석',
+            '학술 기사, 논문, 학회, 및 학술지에 대한 학술 검색 서비스',
+                () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Naver_academy()));
+            },
+          ),
+          buildClickableContainer(
+            context,
+            'Naverdatalab.png',
+            '네이버 데이터랩',
+            '네이버의 검색 트렌드 및 급상승검색어 등 검색 관련 제공 서비스',
+                () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Naver_datalab()));
+            },
           ),
         ],
+      ),
+    );
+  }
+
+  Widget buildClickableContainer(BuildContext context, String imageAsset, String title, String description, VoidCallback onTap) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: 150,
+        padding: EdgeInsets.all(10),
+        margin: EdgeInsets.all(5),  // 각 컨테이너 사이의 간격을 위한 margin 추가
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.black),  // 테두리 스타일 지정
+          borderRadius: BorderRadius.circular(10.0),  // 테두리의 각도 조절
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image.asset(imageAsset, width: 150, fit: BoxFit.cover),
+            SizedBox(width: 10),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Expanded(
+                    child: Text(description,
+                      style: TextStyle(
+                          fontSize: 15
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

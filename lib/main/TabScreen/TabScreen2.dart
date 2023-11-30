@@ -51,7 +51,7 @@ class _TabScreen2State extends State<TabScreen2> {
           14,
               (index) => Column(
             children: [
-              SizedBox(height: 30),
+              SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   // 각 버튼에 따라 다른 페이지로 이동
@@ -92,6 +92,7 @@ class _TabScreen2State extends State<TabScreen2> {
                   ],
                 ),
               ),
+              SizedBox(height: 15),
             ],
           ),
         ),
