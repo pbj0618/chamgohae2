@@ -1,137 +1,191 @@
 import 'package:flutter/material.dart';
+import 'package:chamgohae1/Book/Basics/DBpia/DBpia.dart';
+import 'package:chamgohae1/Book/Basics/KISS/KISS.dart';
+import 'package:chamgohae1/Book/Basics/RISS/RISS.dart';
+import 'package:chamgohae1/Book/Basics/google_scholar/google_scholar.dart';
+import 'package:chamgohae1/Book/Basics/Nanet/Nanet.dart';
+import 'package:chamgohae1/Book/Basics/Dlibrary/Dlibrary.dart';
+import 'package:chamgohae1/Book/Society/Kossda/Kossda.dart';
+import 'package:chamgohae1/Book/Society/Ksdc/Ksdc.dart';
+import 'package:chamgohae1/Book/Society/KRpia/Kpia.dart';
+import 'package:chamgohae1/Book/Society/Cnc/Cnc.dart';
+import 'package:chamgohae1/Book/Science/Science_on/Science_on.dart';
+import 'package:chamgohae1/Book/Science/Korea_science/Korea_science.dart';
+import 'package:chamgohae1/Book/Science/Nature/Nature.dart';
+import 'package:chamgohae1/Book/Science/Pubmed/Pubmed.dart';
 
-void main() {
-  runApp(TabScreen2());
-}
-
-class TabScreen2 extends StatelessWidget {
+class TabScreen2 extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: ButtonList(),
-      ),
-    );
-  }
+  _TabScreen2State createState() => _TabScreen2State();
 }
 
-class ButtonList extends StatefulWidget {
-  @override
-  _ButtonListState createState() => _ButtonListState();
-}
+class _TabScreen2State extends State<TabScreen2> {
+  final List<String> buttonNames = [
+    'DBpia / 디비피아',
+    'Google Scholar / 구글 학술 검색',
+    'RISS / 학술연구정보서비스',
+    'KISS / 한국학술정보',
+    '국회전자도서관',
+    '국가전자도서관',
+    'KOSSDA / 한국사회과학자료원',
+    'KSDC / 한국사회과학데이터센터',
+    'CNC 학술정보 / 인문사회 기초자료 종합 DB',
+    'KRpia / 한국 지식콘텐츠',
+    'Korea science / 한국과학기술정보연구원',
+    'Nature / 해외 자연과학 학술지',
+    'Science on / 국내 종합과학 학술지',
+    'NCBI / 해외 생명과학 학술지',
+  ];
 
-class _ButtonListState extends State<ButtonList> {
-  List<String> buttonLabels = List.generate(10, (index) => 'Button $index');
-  List<bool> isHeartActiveList = List.generate(10, (index) => false);
+  // 각 버튼의 활성화/비활성화 상태를 저장하는 리스트
+  List<bool> buttonStates = List.generate(14, (index) => false);
 
-  void moveButtonToTop(int index) {
-    setState(() {
-      String selectedButton = buttonLabels[index];
-      buttonLabels.removeAt(index);
-      buttonLabels.insert(0, selectedButton);
-      isHeartActiveList[index] = true;
-    });
-
-    // 페이지 이동 로직 추가
-    // 예시로 DBpia 페이지로 이동하도록 설정
-    if (index > 0) {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => DBpia()));
-    }
-  }
-
-  void toggleHeart(int index) {
-    setState(() {
-      isHeartActiveList[index] = !isHeartActiveList[index];
-
-      if (isHeartActiveList[index]) {
-        String selectedButton = buttonLabels[index];
-        buttonLabels.removeAt(index);
-        isHeartActiveList.removeAt(index);
-        buttonLabels.insert(0, selectedButton);
-        isHeartActiveList.insert(0, true);
-      }
-    });
-  }
-
-  void sortListByHeart() {
-    setState(() {
-      List<String> tempLabels = [];
-      List<bool> tempHearts = [];
-
-      for (int i = 0; i < buttonLabels.length; i++) {
-        if (isHeartActiveList[i]) {
-          tempLabels.add(buttonLabels[i]);
-          tempHearts.add(true);
-        }
-      }
-
-      for (int i = 0; i < buttonLabels.length; i++) {
-        if (!isHeartActiveList[i]) {
-          tempLabels.add(buttonLabels[i]);
-          tempHearts.add(false);
-        }
-      }
-
-      buttonLabels = tempLabels;
-      isHeartActiveList = tempHearts;
-    });
-  }
+  // 각 하트 아이콘의 활성화/비활성화 상태를 저장하는 리스트
+  List<bool> heartIconStates = List.generate(14, (index) => false);
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: buttonLabels.length,
-      itemBuilder: (BuildContext context, int index) {
-        return ListTile(
-          title: Row(
+    return Scaffold(
+      body: ListView(
+        children: List.generate(
+          14,
+              (index) => Column(
             children: [
-              Expanded(
-                child: GestureDetector(
-                  onTap: () {
-                    moveButtonToTop(index);
-                  },
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // 버튼 눌렀을 때의 동작
-                      // 여기에 필요한 동작 추가
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(buttonLabels[index]),
-                        IconButton(
-                          onPressed: () {
-                            toggleHeart(index);
-                            sortListByHeart(); // 하트를 토글할 때마다 정렬 수행
-                          },
-                          icon: Icon(
-                            Icons.favorite,
-                            color: isHeartActiveList[index] ? Colors.red : Colors.grey,
-                          ),
-                        ),
-                      ],
-                    ),
+              SizedBox(height: 30),
+              ElevatedButton(
+                onPressed: () {
+                  // 각 버튼에 따라 다른 페이지로 이동
+                  navigateToDifferentPage(context, index);
+                  // 버튼 활성화/비활성화 상태를 토글
+                  setState(() {
+                    buttonStates[index] = !buttonStates[index];
+                  });
+                },
+                style: ElevatedButton.styleFrom(
+                  side: BorderSide(color: Color(0xffB3995D)),
+                  fixedSize: Size(450, 50),
+                  padding: EdgeInsets.all(10),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
                   ),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(buttonNames[index]), // 왼쪽에 텍스트 설정
+                    IconButton(
+                      onPressed: () {
+                        // 하트 아이콘을 눌렀을 때 수행할 동작 추가
+                        // 예를 들어, 즐겨찾기 기능 등
+                        print('하트 아이콘 눌림');
+                        // 하트 아이콘 활성화/비활성화 상태를 토글
+                        setState(() {
+                          heartIconStates[index] = !heartIconStates[index];
+                        });
+                      },
+                      icon: Icon(
+                        Icons.favorite,
+                        color: heartIconStates[index] ? Colors.red : Colors.grey,
+                        size: 30,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
           ),
-        );
-      },
+        ),
+      ),
     );
   }
-}
 
-class DBpia extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('DBpia Page'),
-      ),
-      body: Center(
-        child: Text('This is the DBpia page.'),
-      ),
-    );
+  // 각 버튼에 따라 다른 페이지로 이동하는 함수
+  void navigateToDifferentPage(BuildContext context, int index) {
+    switch (index) {
+      case 0:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => DBpia()),
+        );
+        break;
+      case 1:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => google_scholar()),
+        );
+        break;
+      case 2:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => RISS()),
+        );
+        break;
+      case 3:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => KISS()),
+        );
+        break;
+      case 4:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Nanet()),
+        );
+        break;
+      case 5:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Dlibrary()),
+        );
+        break;
+      case 6:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Kossda()),
+        );
+        break;
+      case 7:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Ksdc()),
+        );
+        break;
+      case 8:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Cnc()),
+        );
+        break;
+      case 9:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => KRpia()),
+        );
+        break;
+      case 10:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Korea_science()),
+        );
+        break;
+      case 11:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Nature()),
+        );
+        break;
+      case 12:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Science_on()),
+        );
+        break;
+      case 13:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Pubmed()),
+        );
+        break;
+    }
   }
 }

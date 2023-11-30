@@ -3,7 +3,7 @@ import 'package:chamgohae1/Book/Society/KRpia/Kpia.dart';
 import 'package:chamgohae1/Book/Society/Kossda/Kossda.dart';
 import 'package:chamgohae1/Book/Society/Ksdc/Ksdc.dart';
 import 'package:flutter/material.dart';
-import 'package:chamgohae1/main/main.dart';
+import 'package:chamgohae1/main.dart';
 import 'package:flutter/material.dart';
 import 'package:chamgohae1/main/Bookmark.dart';
 import 'package:chamgohae1/main/Search1.dart';

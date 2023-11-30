@@ -5,8 +5,8 @@ import 'package:chamgohae1/Book/Society/Ksdc/Ksdc.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class google_trend extends StatelessWidget {
-  const google_trend({super.key});
+class Naver_academy extends StatelessWidget {
+  const Naver_academy({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class google_trend extends StatelessWidget {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('구글 트렌드',
+            Text('네이버 학술정보',
             ),
           ],
         ),
@@ -30,7 +30,7 @@ class google_trend extends StatelessWidget {
             ),
             child: InkWell(
               onTap: () {
-                final uri = Uri.parse('https://trends.google.com/trends/');
+                final uri = Uri.parse('https://academic.naver.com/trend/category.naver');
                 launchUrl(uri);
               },
               child: Container(
@@ -57,19 +57,16 @@ class google_trend extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           SizedBox(
-            child: Image.asset('assets/google_trend/슬라이드0001.png'),
+            child: Image.asset('assets/Naver_academy/슬라이드0001.png'),
           ),
           SizedBox(
-            child: Image.asset('assets/google_trend/슬라이드0002.png'),
+            child: Image.asset('assets/Naver_academy/슬라이드0002.png'),
           ),
           SizedBox(
-            child: Image.asset('assets/google_trend/슬라이드0003.png'),
+            child: Image.asset('assets/Naver_academy/슬라이드0003.png'),
           ),
           SizedBox(
-            child: Image.asset('assets/google_trend/슬라이드0004.png'),
-          ),
-          SizedBox(
-            child: Image.asset('assets/google_trend/슬라이드0005.png'),
+            child: Image.asset('assets/Naver_academy/슬라이드0004.png'),
           ),
         ],
       ),

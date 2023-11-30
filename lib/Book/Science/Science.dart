@@ -3,7 +3,7 @@ import 'package:chamgohae1/Book/Science/Pubmed/Pubmed.dart';
 import 'package:chamgohae1/Book/Science/Korea_science/Korea_science.dart';
 import 'package:chamgohae1/Book/Science/Science_on/Science_on.dart';
 import 'package:flutter/material.dart';
-import 'package:chamgohae1/main/main.dart';
+import 'package:chamgohae1/main.dart';
 import 'package:flutter/material.dart';
 import 'package:chamgohae1/main/Bookmark.dart';
 import 'package:chamgohae1/main/Search1.dart';

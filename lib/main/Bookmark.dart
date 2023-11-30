@@ -1,4 +1,4 @@
-import 'package:chamgohae1/main/main.dart';
+import 'package:chamgohae1/main.dart';
 import 'package:flutter/material.dart';
 import 'package:chamgohae1/Book/Basics/DBpia/DBpia.dart';
 

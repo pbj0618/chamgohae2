@@ -3,7 +3,7 @@ import 'package:chamgohae1/Login_page/Viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:chamgohae1/main/Setting.dart';
 import 'package:chamgohae1/main/QnAPage.dart';
-import 'package:chamgohae1/main/main.dart';
+import 'package:chamgohae1/main.dart';
 import 'package:provider/provider.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:chamgohae1/UserProvider/User_Provider.dart';
@@ -11,7 +11,7 @@ import 'package:chamgohae1/main/Customer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void main() {
-  KakaoSdk.init(nativeAppKey: '033ae651eac2b2c9d95f492284197bdb');
+  KakaoSdk.init(nativeAppKey: '4d6b2e439a8a3c2337f39a8c7e3e54b4');
   runApp(const MyApp());
 }
 
@@ -58,17 +58,13 @@ class _TabScreen3State extends State<TabScreen3> {
               '${viewModel.isLogined}',
               style: TextStyle(color: Colors.white),
             ),
-            accountEmail: Text(
-              'pbj0618@naver.com',
-              style: TextStyle(color: Colors.white),
-            ),
             decoration: BoxDecoration(
               color: Color(0xff1D3557),
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(40.0),
                 bottomRight: Radius.circular(40.0),
               ),
-            ),
+            ), accountEmail: null,
           ),
           ListTile(
             leading: Icon(
@@ -114,7 +110,7 @@ class _TabScreen3State extends State<TabScreen3> {
           ),
           ListTile(
             leading: Icon(
-              Icons.contact_page,
+              Icons.contact_support,
               color: Colors.grey[850],
             ),
             title: Text('카카오 문의하기'),

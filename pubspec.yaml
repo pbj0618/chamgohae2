@@ -107,6 +107,8 @@ flutter:
     - assets/Science_on/
     - assets/Pubmed/
     - assets/Korea_science/
+    - assets/Naver_datalab/
+    - assets/Naver_academy/
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

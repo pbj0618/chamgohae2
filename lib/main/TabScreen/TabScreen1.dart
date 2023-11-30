@@ -133,42 +133,6 @@ class TabScreen1 extends StatelessWidget {
                   ],
                 ),
                 Container(
-                  padding: EdgeInsets.all(10.0),
-                  margin: EdgeInsets.all(10.0),
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      width: 400,
-                      child: ElevatedButton(
-                        child: Text(
-                          '과제 도움 사이트',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.all(30.0),
-                          side: BorderSide(
-                            color: Color(0xffB3995D),
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0),
-                          ),
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (BuildContext context) {
-                              return Homework();
-                            }),
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-                Container(
                   padding: EdgeInsets.all(15.0),
                   margin: EdgeInsets.all(15.0),
                   child: Column(

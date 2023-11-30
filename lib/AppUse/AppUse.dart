@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:chamgohae1/main/main.dart';
+import 'package:chamgohae1/main.dart';
 import 'package:chamgohae1/main/Bookmark.dart';
 import 'package:chamgohae1/main/Search1.dart';
 
