@@ -13,17 +13,7 @@ class Naver_academy extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title:
-        SafeArea(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text('네이버 학술정보',
-            ),
-          ],
-        ),
-        ),
-        centerTitle: true,
-        elevation: 0.0,
+        Text('네이버 학술정보'),
         actions: <Widget>[
           Container(
             width: 180,
@@ -33,7 +23,8 @@ class Naver_academy extends StatelessWidget {
             ),
             child: InkWell(
               onTap: () {
-                final uri = Uri.parse('https://academic.naver.com/trend/category.naver');
+                final uri =
+                Uri.parse('https://academic.naver.com/trend/category.naver');
                 launchUrl(uri);
               },
               child: Container(

@@ -1,22 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:chamgohae1/Book/Basics/Basics.dart';
-import 'package:chamgohae1/Book/Science/Science.dart';
-import 'package:chamgohae1/Book/Society/Society.dart';
 import 'package:chamgohae1/Book/Basics/DBpia/DBpia.dart';
 import 'package:flutter/material.dart';
-import 'package:chamgohae1/main/Bookmark.dart';
-import 'package:chamgohae1/main/Search1.dart';
 import 'package:chamgohae1/Book/Bookmain.dart';
-import 'package:chamgohae1/AppUse/AppUse.dart';
 import 'package:chamgohae1/Widgethouse/CreativeColor.dart';
-import 'package:chamgohae1/main/QnAPage.dart';
-import 'package:chamgohae1/main/Setting.dart';
-import 'package:chamgohae1/main/TabScreen/TabScreen2.dart';
-import 'package:chamgohae1/main/TabScreen/TabScreen3.dart';
-import 'package:chamgohae1/main/TabScreen/TabScreen1.dart';
-import 'package:chamgohae1/Homework/Homework.dart';
 import 'package:chamgohae1/Trend/Trend.dart';
-import 'package:chamgohae1/main/TabScreen/TabScreen0.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 void onBannerPressed(BuildContext context, int index) {
@@ -24,7 +13,7 @@ void onBannerPressed(BuildContext context, int index) {
     case 0:
       // 첫 번째 배너를 클릭했을 때의 동작
       Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return AppUse(); // 첫 번째 페이지로 이동
+        return Bookmain(); // 첫 번째 페이지로 이동
       }));
       break;
     case 1:
@@ -32,7 +21,7 @@ void onBannerPressed(BuildContext context, int index) {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) {
-          return Basics(); // 두 번째 페이지로 이동
+          return Trend(); // 두 번째 페이지로 이동
         }),
       );
       break;
@@ -67,73 +56,23 @@ class TabScreen1 extends StatelessWidget {
                   padding: EdgeInsets.all(5.0),
                   margin: EdgeInsets.all(5.0),
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      width: 400,
-                      child: ElevatedButton(
-                        child: Text(
-                          '논문 정보 사이트',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.all(30.0),
-                          side: BorderSide(
-                            color: Color(0xffB3995D),
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0),
-                          ),
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (BuildContext context) {
-                              return TabScreen0();
-                            }),
-                          );
-                        },
-                      ),
-                    ),
-                  ],
+                buildClickableContainer(
+                  context,
+                  'assets/Book.png',
+                  '논문 정보 사이트',
+                  '과제 및 보고서를 작성할 때 논문을 참고하는 것은 선택이 아니라 필수입니다',
+                      () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Bookmain()));
+                  },
                 ),
-                Container(
-                  padding: EdgeInsets.all(10.0),
-                  margin: EdgeInsets.all(10.0),
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      width: 400,
-                      child: ElevatedButton(
-                        child: Text(
-                          '트렌드 분석 사이트',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.all(30.0),
-                          side: BorderSide(
-                            color: Color(0xffB3995D),
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0),
-                          ),
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (BuildContext context) {
-                              return Trend();
-                            }),
-                          );
-                        },
-                      ),
-                    ),
-                  ],
+                buildClickableContainer(
+                  context,
+                  'assets/Trend.png',
+                  '트렌드 분석 사이트',
+                  '논문을 쓰기 전, 또는 보고서의 주제를 못할 때에는 요즘 트렌드를 분석해서 주제를 정하는 것도 방법입니다',
+                      () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Trend()));
+                  },
                 ),
                 Container(
                   padding: EdgeInsets.all(15.0),
@@ -144,7 +83,7 @@ class TabScreen1 extends StatelessWidget {
                     children: [
                       Text(
                         '※한국외국어대학교의 지원을 받아 제작됨',
-                        style: TextStyle(fontSize: 10),
+                        style: TextStyle(fontSize: 13),
                       ),
                     ],
                   ),
@@ -160,13 +99,32 @@ class TabScreen1 extends StatelessWidget {
 
 List<String> banner = ['assets/banner1.png', 'assets/banner1.png'];
 
-class BannerWidget extends StatelessWidget {
+class BannerWidget extends StatefulWidget {
   const BannerWidget({Key? key}) : super(key: key);
 
   @override
+  _BannerWidgetState createState() => _BannerWidgetState();
+}
+
+class _BannerWidgetState extends State<BannerWidget> {
+  int currentPage = 0;
+
+  // 각 배너에 대한 링크 리스트
+  List<String> bannerLinks = [
+    'https://www.naver.com/', // Basics 페이지에 대한 링크
+    'https://github.com/pbj0618/chamgohae2', // DBpia 페이지에 대한 링크
+    // 추가적인 배너에 대한 링크 추가
+  ];
+
+  @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
+    return InkWell(
+      onTap: () {
+        // 배너를 눌렀을 때 현재 페이지의 링크로 이동
+        if (currentPage >= 0 && currentPage < bannerLinks.length) {
+          launch(bannerLinks[currentPage]);
+        }
+      },
       child: CarouselSlider.builder(
         itemCount: banner.length,
         options: CarouselOptions(
@@ -180,6 +138,11 @@ class BannerWidget extends StatelessWidget {
           autoPlayCurve: Curves.fastOutSlowIn,
           enlargeCenterPage: false,
           scrollDirection: Axis.horizontal,
+          onPageChanged: (index, reason) {
+            setState(() {
+              currentPage = index;
+            });
+          },
         ),
         itemBuilder: (context, itemIndex, realIndex) {
           return Stack(
@@ -196,9 +159,7 @@ class BannerWidget extends StatelessWidget {
                   padding: const EdgeInsets.all(4.0),
                   margin: EdgeInsets.all(16.0),
                   child: Text(
-                    (itemIndex + 1).toString() +
-                        " / " +
-                        banner.length.toString(),
+                    (itemIndex + 1).toString() + " / " + banner.length.toString(),
                   ),
                 ),
               ),
@@ -206,14 +167,53 @@ class BannerWidget extends StatelessWidget {
           );
         },
       ),
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (BuildContext context) {
-            return Basics();
-          }),
-        );
-      },
     );
   }
+}
+
+
+
+
+Widget buildClickableContainer(BuildContext context, String imageAsset, String title, String description, VoidCallback onTap) {
+  return GestureDetector(
+    onTap: onTap,
+    child: Container(
+      height: 150,
+      padding: EdgeInsets.all(10),
+      margin: EdgeInsets.all(5),  // 각 컨테이너 사이의 간격을 위한 margin 추가
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.black),  // 테두리 스타일 지정
+        borderRadius: BorderRadius.circular(10.0),  // 테두리의 각도 조절
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.asset(imageAsset, width: 150, fit: BoxFit.cover),
+          SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold
+                  ),
+                ),
+                SizedBox(height: 10),
+                Expanded(
+                  child: Text(description,
+                    style: TextStyle(
+                        fontSize: 15
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
 }

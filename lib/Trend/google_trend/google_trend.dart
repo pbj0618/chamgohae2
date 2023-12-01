@@ -12,15 +12,7 @@ class google_trend extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text('구글 트렌드',
-            ),
-          ],
-        ),
-        centerTitle: true,
-        elevation: 0.0,
+        title: Text('구글 트렌드'),
         actions: <Widget>[
           Container(
             width: 180,
@@ -30,7 +22,8 @@ class google_trend extends StatelessWidget {
             ),
             child: InkWell(
               onTap: () {
-                final uri = Uri.parse('https://trends.google.com/trends/');
+                final uri =
+                Uri.parse('https://trends.google.com/trends/');
                 launchUrl(uri);
               },
               child: Container(

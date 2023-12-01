@@ -22,7 +22,7 @@ class Basics extends StatelessWidget {
         children: [
           buildClickableContainer(
             context,
-            'Dbpia.png',
+            'assets/Dbpia.png',
             'DBpia',
             '전자저널 논문, 참고 자료, 등을 검색할 수 있는 유/무료 통합 플랫폼 논문 사이트',
                 () {
@@ -31,7 +31,7 @@ class Basics extends StatelessWidget {
           ),
           buildClickableContainer(
             context,
-            'Google.png',
+            'assets/Google.png',
             'Google Scholar / 구글 학술 검색',
             '구글이 운용하는 학술검색 전용 사이트',
                 () {
@@ -40,7 +40,7 @@ class Basics extends StatelessWidget {
           ),
           buildClickableContainer(
             context,
-            'Riss.png',
+            'assets/Riss.png',
             'RISS / 학술 정보 연구 서비스',
             '전국 대학이 생산하고 보유하며 구독하는 학술자원을 공동으로 이용할 수 있도록 개방된 사이트',
                 () {
@@ -49,7 +49,7 @@ class Basics extends StatelessWidget {
           ),
           buildClickableContainer(
             context,
-            'Kiss.png',
+            'assets/Kiss.png',
             'KISS / 한국학술정보',
             '대한민국 최초의 학술 데이터베이스 서비스',
                 () {
@@ -58,7 +58,7 @@ class Basics extends StatelessWidget {
           ),
           buildClickableContainer(
             context,
-            'Nanet.png',
+            'assets/Nanet.png',
             '국회전자도서관',
             '각종 목록, 색인 등 국가서지데이터베이스를 구축하며 석박사학위논문을 비롯한 원문 데이터베이스',
                 () {
@@ -67,7 +67,7 @@ class Basics extends StatelessWidget {
           ),
           buildClickableContainer(
             context,
-            'Country.png',
+            'assets/Country.png',
             '국가전자도서관',
             '국내 주요 전자도서관에서 구축한 디지털 콘텐츠의 공유 및 공동 활용 서비스',
                 () {

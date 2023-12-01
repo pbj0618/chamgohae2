@@ -63,7 +63,7 @@ class _TabScreen2State extends State<TabScreen2> {
                 },
                 style: ElevatedButton.styleFrom(
                   side: BorderSide(color: Color(0xffB3995D)),
-                  fixedSize: Size(450, 50),
+                  fixedSize: Size(450, 70),
                   padding: EdgeInsets.all(10),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15.0),

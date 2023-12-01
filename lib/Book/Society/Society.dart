@@ -19,25 +19,16 @@ class Society extends StatelessWidget {
         children: [
           buildClickableContainer(
             context,
-            'Cnc.png',
-            'CNC 학술정보',
-            '핵심연구기관의 수십 년 간의 연구성과들을 수집 구축한 학술원문정보 데이터베이스',
-                () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Kossda()));
-            },
-          ),
-          buildClickableContainer(
-            context,
-            'Ksdc.png',
+            'assets/Ksdc.png',
             'KSDC / 한국사회과학데이터센터',
             'KSDC DB는 한국의 대표적인 학술 DB로서 주요 설문조사 및 통계 데이터를 수집 및 표본화하여 제공하는 통합 DB 서비스',
                 () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Kossda()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Ksdc()));
             },
           ),
           buildClickableContainer(
             context,
-            'Kossda.png',
+            'assets/Kossda.png',
             'Kossda / 한국사회과학자료원',
             '연구기관들과 개인 연구자들이 산출하는 조사자료, 통계자료, 등의 연구자료를 수집한 디지털 DB 서비스',
                 () {
@@ -46,11 +37,20 @@ class Society extends StatelessWidget {
           ),
           buildClickableContainer(
             context,
-            'Krpia.png',
+            'assets/Cnc.png',
+            'CNC 학술정보',
+            '핵심연구기관의 수십 년 간의 연구성과들을 수집 구축한 학술원문정보 데이터베이스',
+                () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Cnc()));
+            },
+          ),
+          buildClickableContainer(
+            context,
+            'assets/Krpia.png',
             'KRpia / 한국 지식콘텐츠',
             '역사, 문학, 민속문화, 한의학, 자연동식물, 고전 등을 포함하는 한국학 분야 데이터베이스',
                 () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Kossda()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => KRpia()));
             },
           ),
         ],

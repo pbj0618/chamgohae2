@@ -18,7 +18,7 @@ class DBpia extends StatelessWidget {
       length: howuse.length,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('디비피아'),
+          title: Text('DBpia'),
           actions: <Widget>[
             Container(
               width: 180,

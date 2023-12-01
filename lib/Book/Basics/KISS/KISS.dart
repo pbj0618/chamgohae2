@@ -16,7 +16,7 @@ class KISS extends StatelessWidget {
       length: howuse.length,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('KISS / 한국학술정보'),
+          title: Text('KISS'),
           actions: <Widget>[
             Container(
               width: 180,

@@ -32,7 +32,7 @@ class Trend extends StatelessWidget {
         children: [
           buildClickableContainer(
             context,
-            'Googletrend.png',
+            'assets/Googletrend.png',
             '구글 트렌드',
             '구글에서 서비스 중인 검색어 및 동영상 기반 빅데이터 분석 서비스',
                 () {
@@ -41,7 +41,7 @@ class Trend extends StatelessWidget {
           ),
           buildClickableContainer(
             context,
-            'Naver.png',
+            'assets/Naver.png',
             '네이버 학술정보 연구트렌드 분석',
             '학술 기사, 논문, 학회, 및 학술지에 대한 학술 검색 서비스',
                 () {
@@ -50,7 +50,7 @@ class Trend extends StatelessWidget {
           ),
           buildClickableContainer(
             context,
-            'Naverdatalab.png',
+            'assets/Naverdatalab.png',
             '네이버 데이터랩',
             '네이버의 검색 트렌드 및 급상승검색어 등 검색 관련 제공 서비스',
                 () {

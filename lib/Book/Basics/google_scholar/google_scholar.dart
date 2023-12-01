@@ -16,7 +16,7 @@ class google_scholar extends StatelessWidget {
       length: howuse.length,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Google Scholar / 구글 학술 검색'),
+          title: Text('Google Scholar'),
           actions: <Widget>[
             Container(
               width: 180,

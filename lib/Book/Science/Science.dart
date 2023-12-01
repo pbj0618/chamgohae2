@@ -19,7 +19,7 @@ class Science extends StatelessWidget {
         children: [
           buildClickableContainer(
             context,
-            'Koreascience.png',
+            'assets/Koreascience.png',
             'Korea science / 한국과학기술정보연구원',
             '국내 과학기술 학술지 레퍼런스 연계 플랫폼',
                 () {
@@ -28,7 +28,7 @@ class Science extends StatelessWidget {
           ),
           buildClickableContainer(
             context,
-            'Nature.png',
+            'assets/Nature.png',
             'Nature / 해외 자연과학 학술지',
             '세계 3대 학술지로 불리는 해외에서 저명한 종합 과학 저널',
                 () {
@@ -37,7 +37,7 @@ class Science extends StatelessWidget {
           ),
           buildClickableContainer(
             context,
-            'Scienceon.png',
+            'assets/Scienceon.png',
             'Science_on',
             '과학기술정보, 연구데이터, 정보분석 및 연구인프라를 연계·융합하여 연구개발 전주기를 지원하는 지능형 연구자원 공유·활용 플랫폼',
                 () {
@@ -46,7 +46,7 @@ class Science extends StatelessWidget {
           ),
           buildClickableContainer(
             context,
-            'Ncbi.png',
+            'assets/Ncbi.png',
             'NCBI / 해외 생명과학 학술지',
             '해외에서 생명과학 분야를 전문으로 다루는 저널',
                 () {

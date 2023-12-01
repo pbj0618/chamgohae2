@@ -12,18 +12,7 @@ class Naver_datalab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: SafeArea(
-        child:
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text('네이버 데이터랩',
-            ),
-          ],
-        ),
-        ),
-        centerTitle: true,
-        elevation: 0.0,
+        title: Text('네이버 데이터랩'),
         actions: <Widget>[
           Container(
             width: 180,
@@ -33,7 +22,8 @@ class Naver_datalab extends StatelessWidget {
             ),
             child: InkWell(
               onTap: () {
-                final uri = Uri.parse('https://datalab.naver.com/');
+                final uri =
+                Uri.parse('https://datalab.naver.com/');
                 launchUrl(uri);
               },
               child: Container(
