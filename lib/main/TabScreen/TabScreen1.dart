@@ -60,7 +60,7 @@ class TabScreen1 extends StatelessWidget {
                   context,
                   'assets/Book.png',
                   '논문 정보 사이트',
-                  '과제 및 보고서를 작성할 때 논문을 참고하는 것은 선택이 아니라 필수입니다',
+                  '과제 및 보고서를 작성할 때 논문을 참고하여 퀄리티를 높일 수 있습니다',
                       () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => Bookmain()));
                   },
@@ -69,7 +69,7 @@ class TabScreen1 extends StatelessWidget {
                   context,
                   'assets/Trend.png',
                   '트렌드 분석 사이트',
-                  '논문을 쓰기 전, 또는 보고서의 주제를 못할 때에는 요즘 트렌드를 분석해서 주제를 정하는 것도 방법입니다',
+                  '보고서를 쓰기 전에 트렌드 분석을 통해 주제를 선정하는 데 도움을 받을 수 있습니다',
                       () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => Trend()));
                   },
@@ -97,7 +97,7 @@ class TabScreen1 extends StatelessWidget {
   }
 }
 
-List<String> banner = ['assets/banner1.png', 'assets/banner1.png'];
+List<String> banner = ['assets/Banner/1.png', 'assets/Banner/2.png', 'assets/Banner/3.png', 'assets/Banner/4.png'];
 
 class BannerWidget extends StatefulWidget {
   const BannerWidget({Key? key}) : super(key: key);
@@ -111,8 +111,10 @@ class _BannerWidgetState extends State<BannerWidget> {
 
   // 각 배너에 대한 링크 리스트
   List<String> bannerLinks = [
-    'https://www.naver.com/', // Basics 페이지에 대한 링크
-    'https://github.com/pbj0618/chamgohae2', // DBpia 페이지에 대한 링크
+    'https://n.news.naver.com/mnews/article/092/0002313525?sid=105', // Basics 페이지에 대한 링크
+    'https://n.news.naver.com/mnews/article/028/0002667097?sid=104',
+    'https://n.news.naver.com/mnews/article/003/0012244743?sid=104',
+    'https://n.news.naver.com/mnews/article/293/0000049399?sid=105',// DBpia 페이지에 대한 링크
     // 추가적인 배너에 대한 링크 추가
   ];
 
@@ -160,6 +162,7 @@ class _BannerWidgetState extends State<BannerWidget> {
                   margin: EdgeInsets.all(16.0),
                   child: Text(
                     (itemIndex + 1).toString() + " / " + banner.length.toString(),
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
               ),

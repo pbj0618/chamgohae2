@@ -140,19 +140,19 @@ class KISS extends StatelessWidget {
             ListView(
               children: <Widget>[
                 SizedBox(
-                  child: Image.asset('assets/kISS/슬라이드0002.png'),
+                  child: Image.asset('assets/KISS/슬라이드0002.png'),
                 ),
                 SizedBox(
-                  child: Image.asset('assets/kISS/슬라이드0003.png'),
+                  child: Image.asset('assets/KISS/슬라이드0003.png'),
                 ),
                 SizedBox(
-                  child: Image.asset('assets/kISS/슬라이드0004.png'),
+                  child: Image.asset('assets/KISS/슬라이드0004.png'),
                 ),
                 SizedBox(
-                  child: Image.asset('assets/kISS/슬라이드0005.png'),
+                  child: Image.asset('assets/KISS/슬라이드0005.png'),
                 ),
                 SizedBox(
-                  child: Image.asset('assets/kISS/슬라이드0006.png'),
+                  child: Image.asset('assets/KISS/슬라이드0006.png'),
                 ),
               ],
             ),

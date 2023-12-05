@@ -101,8 +101,8 @@ class _MyAppState extends State<MyApp> {
               label: '북마크',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: '회원 정보',
+              icon: Icon(Icons.more_horiz),
+              label: '더보기',
             ),
           ],
           currentIndex: _selectedIndex,

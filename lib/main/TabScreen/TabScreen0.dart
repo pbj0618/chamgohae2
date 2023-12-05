@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:chamgohae1/Book/Society/Society.dart';
-import 'package:chamgohae1/Book/Science/Science.dart';
-import 'package:chamgohae1/Book/Basics/Basics.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class TabScreen0 extends StatelessWidget {
-  const TabScreen0({super.key});
+class TabScreen2 extends StatelessWidget {
+  const TabScreen2({Key? key});
+
+  // 함수를 사용하여 링크를 여러 곳에서 재사용할 수 있습니다.
+  void _launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('논문 정보 사이트',
-        ),
-        centerTitle: true,
-        elevation: 0.0,
-      ),
       body: ListView(
         children: <Widget>[
           Column(
@@ -29,28 +30,28 @@ class TabScreen0 extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     width: 400,
-                    child: ElevatedButton(
-                      child: Text(
-                        '기초 자료 사이트',
-                        style: TextStyle(fontSize: 20),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.all(30.0),
-                        side: BorderSide(
-                          color: Color(0xffB3995D),
+                    child: Ink(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 2.0,
                         ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      child: InkWell(
+                        onTap: () {
+                          // 기초 자료 사이트로 이동하는 링크를 여기에 추가
+                          _launchURL('https://example.com/basics');
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 30.0),
+                          child: Text(
+                            '기초 자료 사이트',
+                            style: TextStyle(fontSize: 20),
+                          ),
                         ),
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (BuildContext context) {
-                            return Basics();
-                          }),
-                        );
-                      },
                     ),
                   ),
                 ],
@@ -65,28 +66,28 @@ class TabScreen0 extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     width: 400,
-                    child: ElevatedButton(
-                      child: Text(
-                        '인문 사회 계열 사이트',
-                        style: TextStyle(fontSize: 20),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.all(30.0),
-                        side: BorderSide(
-                          color: Color(0xffB3995D),
+                    child: Ink(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 2.0,
                         ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      child: InkWell(
+                        onTap: () {
+                          // 인문 사회 계열 사이트로 이동하는 링크를 여기에 추가
+                          _launchURL('https://example.com/society');
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 30.0),
+                          child: Text(
+                            '인문 사회 계열 사이트',
+                            style: TextStyle(fontSize: 20),
+                          ),
                         ),
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (BuildContext context) {
-                            return Society();
-                          }),
-                        );
-                      },
                     ),
                   ),
                 ],
@@ -101,28 +102,28 @@ class TabScreen0 extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     width: 400,
-                    child: ElevatedButton(
-                      child: Text(
-                        '자연 과학 계열 사이트',
-                        style: TextStyle(fontSize: 20),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.all(30.0),
-                        side: BorderSide(
-                          color: Color(0xffB3995D),
+                    child: Ink(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 2.0,
                         ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      child: InkWell(
+                        onTap: () {
+                          // 자연 과학 계열 사이트로 이동하는 링크를 여기에 추가
+                          _launchURL('https://example.com/science');
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 30.0),
+                          child: Text(
+                            '자연 과학 계열 사이트',
+                            style: TextStyle(fontSize: 20),
+                          ),
                         ),
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (BuildContext context) {
-                            return Science();
-                          }),
-                        );
-                      },
                     ),
                   ),
                 ],
