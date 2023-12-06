@@ -1,5 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:chamgohae1/Book/Basics/Basics.dart';
 import 'package:chamgohae1/UserProvider/User_Provider.dart';
 import 'package:chamgohae1/Widgethouse/CreativeColor.dart';
 import 'package:chamgohae1/firebase_options.dart';

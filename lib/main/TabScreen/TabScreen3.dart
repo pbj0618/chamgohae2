@@ -1,5 +1,3 @@
-import 'package:chamgohae1/Login_page/Loginpage2.dart';
-import 'package:chamgohae1/Login_page/Viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:chamgohae1/main/QnAPage.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
@@ -38,7 +36,6 @@ class TabScreen3 extends StatefulWidget {
 }
 
 class _TabScreen3State extends State<TabScreen3> {
-  final viewModel = MainViewModel(KakaoLogin());
 
   @override
   Widget build(BuildContext context) {
